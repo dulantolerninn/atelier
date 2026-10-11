@@ -1,4 +1,4 @@
--- Theta Board: esquema inicial y acceso exclusivo para la cuenta personal.
+-- Atelier: esquema inicial y acceso exclusivo para la cuenta personal.
 create table if not exists public.projects (
   id uuid primary key default gen_random_uuid(),
   owner_id uuid not null default auth.uid() references auth.users(id) on delete cascade,

@@ -1,11 +1,37 @@
 @import "tailwindcss";
 
+@theme inline {
+  --color-app: var(--app);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-danger: var(--danger);
+}
+
+:root {
+  --app: #fafafa; --surface: #ffffff; --subtle: #f4f4f5; --line: #e4e4e7;
+  --fg: #27272a; --muted: #71717a; --accent: #3f3f46; --accent-fg: #ffffff; --danger: #dc2626;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --app: #111113; --surface: #1a1a1d; --subtle: #252529; --line: #2e2e33;
+  --fg: #ececee; --muted: #9a9aa3; --accent: #e4e4e7; --accent-fg: #18181b; --danger: #f87171;
+  color-scheme: dark;
+}
+
 * { box-sizing: border-box; }
 html, body { margin: 0; min-height: 100%; }
-body { background: #fafafa; color: #27272a; font-family: Arial, Helvetica, sans-serif; letter-spacing: 0.012em; }
-button, input { font: inherit; }
+body { background: var(--app); color: var(--fg); font-family: Arial, Helvetica, sans-serif; letter-spacing: 0.012em; }
+button, input, select { font: inherit; }
+button:not(:disabled), select { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
 
-.excalidraw { --color-primary: #52525b; --color-primary-darker: #3f3f46; --color-primary-light: #e4e4e7; }
+.excalidraw:not(.theme--dark) { --color-primary: #52525b; --color-primary-darker: #3f3f46; --color-primary-light: #e4e4e7; }
 
 /* Oculta los enlaces promocionales del menú original de Excalidraw. */
 .excalidraw .dropdown-menu-item-divider:has(+ .dropdown-menu-group:has(> .dropdown-menu-group-title)),
