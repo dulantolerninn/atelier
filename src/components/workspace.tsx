@@ -80,7 +80,7 @@ export function Workspace() {
 
   if (loading && !project) return <main className="grid min-h-screen place-items-center"><LoaderCircle className="animate-spin text-zinc-600" /></main>;
 
-  if (board) return <BoardCanvas key={board.id} board={board} onBack={() => setBoard(null)} />;
+  if (board) return <BoardCanvas key={board.id} board={board} onBack={() => setBoard(null)} onSaved={(id, scene) => setBoards((items) => items.map((item) => item.id === id ? { ...item, scene } : item))} />;
 
   return (
     <main className="min-h-screen bg-[#fafafa] text-zinc-800">
