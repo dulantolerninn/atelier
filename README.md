@@ -1,4 +1,4 @@
-# Atelier
+# Board Archive
 
 Espacio privado en la nube con herramientas para pensar y crear. La primera herramienta son las **Pizarras**: pizarras infinitas organizadas por proyecto.
 
